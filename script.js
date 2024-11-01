@@ -95,7 +95,7 @@ document.addEventListener('DOMContentLoaded', () => {
             resultMessage = "Sepertinya butuh pembicaraan serius. Jangan menyerah! 💔";
         }
 
-        const waNumber = "085346096377";
+        const waNumber = "+6285346096377";
         const waLink = `https://wa.me/${waNumber}?text=${encodeURIComponent(resultMessage)}`;
 
         quizContainer.innerHTML = `
@@ -105,18 +105,27 @@ document.addEventListener('DOMContentLoaded', () => {
                 <p>Total Skor: <strong>${totalScore} dari 10</strong></p>
                 <p class="result-message">${resultMessage}</p>
                 <input type="text" id="final-message" placeholder="Tulis pesan spesial untuk Piki" class="answer-btn">
-                <button onclick="sendWhatsApp()" class="answer-btn">Kirim Pesan via WhatsApp</button>
+                <button id="send-wa-btn" class="answer-btn">Kirim Pesan via WhatsApp</button>
             </div>
         `;
+
+        // Add event listener to the WhatsApp button
+        document.getElementById('send-wa-btn').addEventListener('click', sendWhatsApp);
     }
 
     function sendWhatsApp() {
         const finalMessage = document.getElementById('final-message').value;
-        const waNumber = "085346096377";
-        const waLink = `https://wa.me/${waNumber}?text=${encodeURIComponent(finalMessage)}`;
-        window.open(waLink, '_blank');
+        const waNumber = "+6285346096377";
+        const completeMessage = finalMessage ? 
+            `Hasil Quiz Cinta: ${finalMessage}` : 
+            "Aku baru saja menyelesaikan quiz cinta!";
+        
+        const waLink = `https://wa.me/${waNumber}?text=${encodeURIComponent(completeMessage)}`;
+        
+        // This will open WhatsApp in a new tab/window
+        window.location.href = waLink;
     }
 
     // Start the quiz
     renderQuestion();
-});
+});});
