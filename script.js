@@ -95,7 +95,7 @@ document.addEventListener('DOMContentLoaded', () => {
             resultMessage = "Sepertinya butuh pembicaraan serius. Jangan menyerah! 💔";
         }
 
-        const waNumber = "+6285346096377";
+        const waNumber = "085346096377";
         const waLink = `https://wa.me/${waNumber}?text=${encodeURIComponent(resultMessage)}`;
 
         quizContainer.innerHTML = `
@@ -115,7 +115,7 @@ document.addEventListener('DOMContentLoaded', () => {
 
     function sendWhatsApp() {
         const finalMessage = document.getElementById('final-message').value;
-        const waNumber = "+6285346096377";
+        const waNumber = "085346096377";
         const completeMessage = finalMessage ? 
             `Hasil Quiz Cinta: ${finalMessage}` : 
             "Aku baru saja menyelesaikan quiz cinta!";
@@ -128,4 +128,4 @@ document.addEventListener('DOMContentLoaded', () => {
 
     // Start the quiz
     renderQuestion();
-});});
+});
